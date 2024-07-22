@@ -6,6 +6,9 @@
 #include <forward_list>
 #include <utility>
 #include <unordered_map>
+#include <bits/stdc++.h>
+#include <cmath>
+#include <iomanip>
 using namespace std;
 
 class AdjacencyList {
@@ -14,9 +17,12 @@ class AdjacencyList {
 private:
     struct Vertex {
         float rank;
-        pair<forward_list<int>, int> links;
+        pair<forward_list<string>, int> links;
+        void addInboundLinks(const string &link);
+        void addOutboundLinks();
     };
     unordered_map<string, Vertex> graph;
+
 
     // test cases
     vector<string> getKeys();
@@ -26,6 +32,9 @@ private:
 
 public:
     void insertEdge(const string &from, const string &to);
+    void calculateInitialRanks();
+    void calculateRanks();
+    void printOutput();
 };
 
 

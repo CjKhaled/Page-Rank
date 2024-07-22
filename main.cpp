@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <tuple>
+#include "../src/AdjacencyList.h"
 using namespace std;
 
 tuple<int, int> getFirstLine() {
@@ -17,6 +18,7 @@ tuple<int, int> getFirstLine() {
 }
 
 int main() {
+    AdjacencyList api;
     auto [numCommands, powerIterations] = getFirstLine();
     int count = 0;
     while (count != numCommands) {
@@ -28,8 +30,16 @@ int main() {
         string to;
         getline(parseInput, from, ' ');
         getline(parseInput, to, ' ');
+        api.insertEdge(from, to);
         count++;
     }
+
+    api.calculateInitialRanks();
+    for (int i = 1; i < powerIterations; i++) {
+        api.calculateRanks();
+    }
+
+    api.printOutput();
 
     return 0;
 }
