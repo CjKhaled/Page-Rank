@@ -21,6 +21,7 @@ void AdjacencyList::calculateInitialRanks() {
     float initialRank = 1.0 / graph.size();
     for (auto &pair : graph) {
         pair.second.rank = initialRank;
+        pair.second.oldRank = initialRank;
     }
 }
 
@@ -58,7 +59,7 @@ vector<float> AdjacencyList::getRanks() {
     sort(temp.begin(), temp.end());
     for (auto &key : temp) {
         float rank = graph.at(key).rank;
-        rank = floor(rank * 100.0) / 100.0;
+        rank = round(rank * 100.0) / 100.0;
         result.push_back(rank);
     }
 
@@ -70,13 +71,19 @@ vector<float> AdjacencyList::getRanks() {
 void AdjacencyList::calculateRanks() {
     for (auto &pair : graph) {
         // (inbound link rank / inbound links outbound links number) is our new rank
+        // making sure to use the rank that hasn't been updated
         float newRank = 0;
         for (auto &link : pair.second.links.first) {
-            newRank += graph.at(link).rank / graph.at(link).links.second;
+            newRank += graph.at(link).oldRank / graph.at(link).links.second;
         }
+
         pair.second.rank = newRank;
     }
 
+    // updating old rank when complete
+    for (auto &pair : graph) {
+        pair.second.oldRank = pair.second.rank;
+    }
 }
 
 bool sortHelper(const pair<string, float> &a, const pair<string, float> &b) {
@@ -87,7 +94,7 @@ void AdjacencyList::printOutput() {
     vector<pair<string, float>> result;
     for (auto &pair : graph) {
         float rank = pair.second.rank;
-        rank = floor(rank * 100.0) / 100.0;
+        rank = round(rank * 100.0) / 100.0;
         result.emplace_back(pair.first, rank);
     }
 

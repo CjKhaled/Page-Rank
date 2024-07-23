@@ -17,6 +17,7 @@ class AdjacencyList {
 private:
     struct Vertex {
         float rank;
+        float oldRank;
         pair<forward_list<string>, int> links;
         void addInboundLinks(const string &link);
         void addOutboundLinks();

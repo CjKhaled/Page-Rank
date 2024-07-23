@@ -18,8 +18,8 @@ include_directories(test-unit)
 
 add_executable(Main
         main.cpp
-        src/AdjacencyList.cpp
-        src/AdjacencyList.h
+        AdjacencyList.cpp
+        AdjacencyList.h
 )
 
 add_executable(Tests

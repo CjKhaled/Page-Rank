@@ -56,12 +56,12 @@ build CMakeFiles/Main.dir/main.cpp.obj: CXX_COMPILER__Main_unscanned_Debug C$:/U
   OBJECT_DIR = CMakeFiles\Main.dir
   OBJECT_FILE_DIR = CMakeFiles\Main.dir
 
-build CMakeFiles/Main.dir/src/AdjacencyList.cpp.obj: CXX_COMPILER__Main_unscanned_Debug C$:/Users/Clauv/OneDrive/Desktop/DSA$ Labs/Project2/src/AdjacencyList.cpp || cmake_object_order_depends_target_Main
-  DEP_FILE = CMakeFiles\Main.dir\src\AdjacencyList.cpp.obj.d
+build CMakeFiles/Main.dir/AdjacencyList.cpp.obj: CXX_COMPILER__Main_unscanned_Debug C$:/Users/Clauv/OneDrive/Desktop/DSA$ Labs/Project2/AdjacencyList.cpp || cmake_object_order_depends_target_Main
+  DEP_FILE = CMakeFiles\Main.dir\AdjacencyList.cpp.obj.d
   FLAGS = -Wall -Werror -g -fdiagnostics-color=always
   INCLUDES = -I"C:/Users/Clauv/OneDrive/Desktop/DSA Labs/Project2/test-unit"
   OBJECT_DIR = CMakeFiles\Main.dir
-  OBJECT_FILE_DIR = CMakeFiles\Main.dir\src
+  OBJECT_FILE_DIR = CMakeFiles\Main.dir
 
 
 # =============================================================================
@@ -71,7 +71,7 @@ build CMakeFiles/Main.dir/src/AdjacencyList.cpp.obj: CXX_COMPILER__Main_unscanne
 #############################################
 # Link the executable Main.exe
 
-build Main.exe: CXX_EXECUTABLE_LINKER__Main_Debug CMakeFiles/Main.dir/main.cpp.obj CMakeFiles/Main.dir/src/AdjacencyList.cpp.obj
+build Main.exe: CXX_EXECUTABLE_LINKER__Main_Debug CMakeFiles/Main.dir/main.cpp.obj CMakeFiles/Main.dir/AdjacencyList.cpp.obj
   FLAGS = -Wall -Werror -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Main.dir

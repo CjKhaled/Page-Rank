@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <tuple>
-#include "../src/AdjacencyList.h"
+#include "AdjacencyList.h"
 using namespace std;
 
 tuple<int, int> getFirstLine() {
@@ -19,7 +19,8 @@ tuple<int, int> getFirstLine() {
 
 int main() {
     AdjacencyList api;
-    auto [numCommands, powerIterations] = getFirstLine();
+    int numCommands, powerIterations;
+    tie(numCommands, powerIterations) = getFirstLine();
     int count = 0;
     while (count != numCommands) {
         string userInput;
